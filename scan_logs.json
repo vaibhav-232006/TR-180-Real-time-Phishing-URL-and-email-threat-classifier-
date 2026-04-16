@@ -1,0 +1,135 @@
+[
+    {
+        "timestamp": "2026-04-16 19:10:37",
+        "target": "https://lng-okx.org/",
+        "prediction": "Safe",
+        "confidence": "98.0%",
+        "reason": "Flagged because: Hyphenated domain mimicking legitimate brands."
+    },
+    {
+        "timestamp": "2026-04-16 19:06:25",
+        "target": "https://lng-okx.org/",
+        "prediction": "Safe",
+        "confidence": "98.0%",
+        "reason": "Flagged because: Hyphenated domain mimicking legitimate brands."
+    },
+    {
+        "timestamp": "2026-04-16 19:06:20",
+        "target": "https://lng-okx.org/",
+        "prediction": "Safe",
+        "confidence": "98.0%",
+        "reason": "Flagged because: Hyphenated domain mimicking legitimate brands."
+    },
+    {
+        "timestamp": "2026-04-16 19:01:07",
+        "target": "gui_app.py",
+        "prediction": "Safe",
+        "confidence": "100.0%",
+        "reason": "No red flags detected based on heuristics."
+    },
+    {
+        "timestamp": "2026-04-16 18:59:23",
+        "target": "noibihk",
+        "prediction": "Safe",
+        "confidence": "100.0%",
+        "reason": "No red flags detected based on heuristics."
+    },
+    {
+        "timestamp": "2026-04-16 18:46:53",
+        "target": "\thttps://lng-okx.org/",
+        "prediction": "Safe",
+        "confidence": "98.0%",
+        "reason": "Flagged because: Hyphenated domain mimicking legitimate brands."
+    },
+    {
+        "timestamp": "2026-04-16 18:46:23",
+        "target": "\thttps://robloxcheatengine.com/",
+        "prediction": "Safe",
+        "confidence": "100.0%",
+        "reason": "No red flags detected based on heuristics."
+    },
+    {
+        "timestamp": "2026-04-16 18:46:23",
+        "target": "\thttps://robloxcheatengine.com/",
+        "prediction": "Safe",
+        "confidence": "100.0%",
+        "reason": "No red flags detected based on heuristics."
+    },
+    {
+        "timestamp": "2026-04-16 18:46:23",
+        "target": "\thttps://robloxcheatengine.com/",
+        "prediction": "Safe",
+        "confidence": "100.0%",
+        "reason": "No red flags detected based on heuristics."
+    },
+    {
+        "timestamp": "2026-04-16 18:46:23",
+        "target": "\thttps://robloxcheatengine.com/",
+        "prediction": "Safe",
+        "confidence": "100.0%",
+        "reason": "No red flags detected based on heuristics."
+    },
+    {
+        "timestamp": "2026-04-16 18:46:23",
+        "target": "\thttps://robloxcheatengine.com/",
+        "prediction": "Safe",
+        "confidence": "100.0%",
+        "reason": "No red flags detected based on heuristics."
+    },
+    {
+        "timestamp": "2026-04-16 18:46:21",
+        "target": "\thttps://robloxcheatengine.com/",
+        "prediction": "Safe",
+        "confidence": "100.0%",
+        "reason": "No red flags detected based on heuristics."
+    },
+    {
+        "timestamp": "2026-04-16 18:46:18",
+        "target": "\thttps://robloxcheatengine.com/",
+        "prediction": "Safe",
+        "confidence": "100.0%",
+        "reason": "No red flags detected based on heuristics."
+    },
+    {
+        "timestamp": "2026-04-16 18:46:18",
+        "target": "\thttps://robloxcheatengine.com/",
+        "prediction": "Safe",
+        "confidence": "100.0%",
+        "reason": "No red flags detected based on heuristics."
+    },
+    {
+        "timestamp": "2026-04-16 18:46:12",
+        "target": "\thttps://robloxcheatengine.com/",
+        "prediction": "Safe",
+        "confidence": "100.0%",
+        "reason": "No red flags detected based on heuristics."
+    },
+    {
+        "timestamp": "2026-04-16 18:45:51",
+        "target": "\thttps://telegramch.org/",
+        "prediction": "Safe",
+        "confidence": "100.0%",
+        "reason": "No red flags detected based on heuristics."
+    },
+    {
+        "timestamp": "2026-04-16 18:45:50",
+        "target": "\thttps://telegramch.org/",
+        "prediction": "Safe",
+        "confidence": "100.0%",
+        "reason": "No red flags detected based on heuristics."
+    },
+    {
+        "timestamp": "2026-04-16 18:45:49",
+        "target": "\thttps://telegramch.org/",
+        "prediction": "Safe",
+        "confidence": "100.0%",
+        "reason": "No red flags detected based on heuristics."
+    },
+    {
+        "timestamp": "2026-04-16 18:45:44",
+        "target": "\thttps://telegramch.org",
+        "prediction": "Safe",
+        "confidence": "100.0%",
+        "reason": "No red flags detected based on heuristics."
+    }
+]

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Threat Intelligence Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Load Feather Icons for professional SVGs -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- Load Chart.js for data visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i data-feather="shield" class="logo-icon"></i>
+                <h2>DeepShield Analytics</h2>
+            </div>
+            <ul class="nav-links">
+                <li class="active" id="nav-dashboard"><i data-feather="grid"></i> Dashboard</li>
+                <li id="nav-analytics"><i data-feather="pie-chart"></i> Analytics</li>
+                <li id="nav-logs"><i data-feather="file-text"></i> Scan Logs</li>
+                <li><i data-feather="settings"></i> Settings</li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    API: Online
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-nav">
+                <div class="search-bar">
+                    <i data-feather="search"></i>
+                    <input type="text" placeholder="Search past URL scans...">
+                </div>
+                <div class="user-profile">
+                    <i data-feather="bell" class="notification-icon"></i>
+                    <div class="avatar">Admin</div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="content-wrapper" id="dashboard-view">
+                <div class="page-header">
+                    <h1>Real-Time Phishing Analysis</h1>
+                    <p>Enter suspicious URLs or email content to evaluate threats using our Machine Learning model.</p>
+                </div>
+
+                <div class="bento-grid">
+                    <!-- Left Column: Input Form -->
+                    <section class="card input-card">
+                        <div class="card-header">
+                            <i data-feather="crosshair"></i>
+                            <h3>New Scan Target</h3>
+                        </div>
+                        <form id="analyze-form">
+                            <div class="input-group">
+                                <label for="url">URL to Analyze</label>
+                                <div class="input-icon-wrapper">
+                                    <i data-feather="link"></i>
+                                    <input type="url" id="url" placeholder="https://suspicious-site.com/login">
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="input-group">
+                                    <label for="sender_name">Sender Name <span>(Optional)</span></label>
+                                    <div class="input-icon-wrapper">
+                                        <i data-feather="user"></i>
+                                        <input type="text" id="sender_name" placeholder="e.g. Support Team">
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label for="sender_email">Sender Email <span>(Optional)</span></label>
+                                    <div class="input-icon-wrapper">
+                                        <i data-feather="mail"></i>
+                                        <input type="email" id="sender_email" placeholder="e.g. alert@scam.net">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="email_body">Email Body Signature</label>
+                                <textarea id="email_body" rows="4" placeholder="Paste the raw email content for NLP classification..."></textarea>
+                            </div>
+
+                            <button type="submit" id="submit-btn" class="primary-btn">
+                                <i data-feather="cpu"></i>
+                                <span class="btn-text">Execute Scan</span>
+                                <div class="spinner hidden" id="loading-spinner"></div>
+                            </button>
+                            <div id="form-error" class="error-msg hidden">Required: Please provide a URL or Email Body.</div>
+                        </form>
+                    </section>
+
+                    <!-- Right Column: Results & Stats -->
+                    <div class="stats-column">
+                        <section class="card results-panel hidden" id="results-panel">
+                            <div class="card-header border-bottom">
+                                <i data-feather="activity"></i>
+                                <h3>Scan Results</h3>
+                            </div>
+                            
+                            <div class="result-details" id="result-card">
+                                <div class="status-header">
+                                    <div class="icon-ring" id="status-ring">
+                                        <i data-feather="check" id="status-icon"></i>
+                                    </div>
+                                    <div class="status-title">
+                                        <h2 id="prediction-text">Safe</h2>
+                                        <p>Classification</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="confidence-meter">
+                                    <div class="meter-label">
+                                        <span>Confidence Score</span>
+                                        <span id="confidence-score">99%</span>
+                                    </div>
+                                    <div class="meter-bar-bg">
+                                        <div class="meter-bar-fill" id="meter-fill" style="width: 99%"></div>
+                                    </div>
+                                </div>
+
+                                <div class="threat-explanation">
+                                    <h4><i data-feather="info"></i> Diagnostic Reason</h4>
+                                    <p id="explanation-text">No red flags detected based on heuristics.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="card info-card" id="waiting-state">
+                            <i data-feather="zap" class="large-icon"></i>
+                            <h3>Awaiting Telemetry</h3>
+                            <p>Submit a target to generate a threat report.</p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics View -->
+            <div class="content-wrapper hidden" id="analytics-view">
+                <div class="page-header">
+                    <h1>Telemetry Analytics</h1>
+                    <p>Live macro-analysis and visualizations of all incoming threat vectors.</p>
+                </div>
+                
+                <div class="bento-grid">
+                    <section class="card">
+                        <div class="card-header border-bottom">
+                            <i data-feather="target"></i>
+                            <h3>Threat Ratio</h3>
+                        </div>
+                        <div style="height: 300px; padding: 1rem; display: flex; justify-content: center; position: relative;">
+                            <canvas id="ratioChart"></canvas>
+                        </div>
+                        <div id="no-data-msg" style="text-align: center; margin-top:20px; display: none; color: #94a3b8;">
+                            Run some scans on the dashboard to populate these charts!
+                        </div>
+                    </section>
+
+                    <section class="card">
+                        <div class="card-header border-bottom">
+                            <i data-feather="bar-chart-2"></i>
+                            <h3>Total Volume Processed</h3>
+                        </div>
+                        <div style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:300px;">
+                            <h2 style="font-size: 5rem; font-weight:800; background: linear-gradient(135deg, #60a5fa, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" id="total-stat">0</h2>
+                            <p style="color: #94a3b8; text-transform: uppercase; letter-spacing: 2px;">Total URLs Evaluated</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Scan Logs View -->
+            <div class="content-wrapper hidden" id="logs-view">
+                <div class="page-header">
+                    <h1>Threat Scan History</h1>
+                    <p>A persistent system record of all analyzed targets and verdicts.</p>
+                </div>
+                
+                <section class="card table-card">
+                    <div class="table-responsive">
+                        <table class="logs-table">
+                            <thead>
+                                <tr>
+                                    <th>Timestamp</th>
+                                    <th>Target Data</th>
+                                    <th>Classification</th>
+                                    <th>Confidence</th>
+                                    <th>Diagnostic Check</th>
+                                </tr>
+                            </thead>
+                            <tbody id="logs-tbody">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+      feather.replace()
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
